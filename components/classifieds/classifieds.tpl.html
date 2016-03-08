@@ -1,0 +1,45 @@
+<md-toolbar md-scroll-shrink>
+  <div class="md-toolbar-tools">
+
+    <p><strong>ngcoffeecards</strong></p>
+
+    <md-button ng-click="vm.openSidebar()">
+      <md-icon class="mdi mdi-plus-circle"></md-icon>
+      New Classified
+    </md-button>
+
+    <md-button ng-click="vm.showFilters = !vm.showFilters">
+      <md-icon class="mdi mdi-magnify"></md-icon>
+      Filters
+    </md-button>
+
+  </div>
+</md-toolbar>
+
+<div class="filters" layout="row" layout-align="center center" ng-show="vm.showFilters">
+  <!--  We're working locally with our models here. They don't interact
+  with our controller because we don't prefix them with vm -->
+  <md-input-container>
+    <label>Enter a Search Term</label>
+    <input ng-model="coffeecardsFilter" type="text">
+  </md-input-container>
+
+  <div layout="row">
+    <md-button ng-click="coffeecardsFilter = '';category='';" class="md-warn">
+      Clear
+    </md-button>
+  </div>
+
+</div>
+
+<ui-view></ui-view>
+
+<md-content layout-padding>
+  <classified-card
+    coffeecards="vm.coffeecards"
+    search-filter="coffeecardsFilter"
+    category-filter="category"
+    layout="row"
+    layout-wrap>
+  </classified-card>
+</md-content>

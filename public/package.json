@@ -1,0 +1,24 @@
+{
+  "name": "udemy-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoSmoBN/udemyAngular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoSmoBN/udemyAngular/issues"
+  },
+  "homepage": "https://github.com/JoSmoBN/udemyAngular#readme",
+  "dependencies": {
+    "angular": "latest",
+    "angular-animate": "^1.5.0",
+    "angular-aria": "^1.5.0"
+  }
+}

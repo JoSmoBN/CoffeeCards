@@ -1,0 +1,71 @@
+<md-card
+  class="classified"
+  ng-repeat="classified in coffeecards | filter: coffeecardsFilter | filter: category" flex="30">
+
+  <img ng-src="{{ classified.image }}" class="md-avatar">
+  <md-card-content>
+    <div class="classified-info" ng-show="!showContact">
+      <h2 class="md-title">{{ classified.roaster }}</h2>
+      <h3>{{ classified.loctionfamily || classified.locationfarm }}</h3>
+      <p>{{ classified.tastingnotes }}</p>
+    </div>
+
+    <div class="classified-contact" ng-if="showContact">
+      <p>
+        <md-icon></md-icon>
+        Elevation: {{ classified.info.elevation }}
+      </p>
+      <p>
+        <md-icon></md-icon>
+        Processing: {{ classified.info.processing }}
+      </p>
+      <p>
+        <md-icon></md-icon>
+        Variety: {{ classified.info.variety }}
+      </p>
+    </div>
+
+    <div layout="row">
+      <md-button
+        ng-click="showContact = true"
+        ng-show="!showContact">
+        More Details
+      </md-button>
+
+      <md-button
+        ng-click="showContact = false"
+        ng-show="showContact">
+        Details
+      </md-button>
+
+      <md-button
+        ng-click="showAdmin = true"
+        ng-show="!showAdmin">
+        Admin
+      </md-button>
+
+      <md-button
+        ng-click="showAdmin = false"
+        ng-show="showAdmin">
+        Close
+      </md-button>
+    </div>
+
+    <div class="classified-admin" ng-if="showAdmin">
+      <h3>Admin</h3>
+      <div layout="row">
+        <md-button
+          class="md-primary"
+          ng-click="vm.editClassified(classified)">
+          Edit
+        </md-button>
+        <md-button
+          class="md-warn"
+          ng-click="vm.deleteClassified($event, classified)">
+          Delete
+        </md-button>
+      </div>
+    </div>
+
+  </md-card-content>
+</md-card>
